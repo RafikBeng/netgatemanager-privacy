@@ -5,111 +5,275 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NetGateManager — Privacy Policy</title>
   <style>
+    :root {
+      --primary: #0366d6;
+      --primary-dark: #024ea4;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --bg-page: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --highlight-bg: #eff6ff;
+      --highlight-border: #3b82f6;
+      --badge-bg: #e0f2fe;
+      --badge-text: #0369a1;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 24px;
-      color: #24292e;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+      color: var(--text-main);
+      background-color: var(--bg-page);
       line-height: 1.7;
     }
-    h1 { color: #0d1117; border-bottom: 2px solid #e1e4e8; padding-bottom: 12px; }
-    h2 { color: #24292e; margin-top: 32px; }
-    .last-updated { color: #6a737d; font-size: 0.9em; }
-    ul { padding-left: 20px; }
-    li { margin-bottom: 8px; }
-    .highlight {
-      background: #f1f8ff;
-      border-left: 4px solid #0366d6;
-      padding: 12px 16px;
-      border-radius: 0 8px 8px 0;
+
+    .container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    }
+
+    .header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      color: #0f172a;
+      font-size: 2rem;
+      margin: 0 0 8px 0;
+      letter-spacing: -0.025em;
+    }
+
+    .last-updated {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    h2 {
+      color: #0f172a;
+      font-size: 1.3rem;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    p {
+      margin: 0 0 16px 0;
+    }
+
+    ul {
+      padding-left: 24px;
+      margin: 0 0 16px 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .highlight-card {
+      background: var(--highlight-bg);
+      border-left: 5px solid var(--highlight-border);
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 24px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .permission-table {
+      width: 100%;
+      border-collapse: collapse;
       margin: 16px 0;
+      font-size: 0.95rem;
+    }
+
+    .permission-table th, .permission-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    .permission-table th {
+      background-color: #f1f5f9;
+      color: #334155;
+      font-weight: 600;
+    }
+
+    code {
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.88em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: var(--primary-dark);
+    }
+
+    .footer {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.9em;
+      text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <h1>Privacy Policy</h1>
-  <p class="last-updated">Last updated: June 2026</p>
+  <div class="container">
+    <div class="header">
+      <h1>Privacy Policy — NetGateManager</h1>
+      <p class="last-updated"><strong>Last updated:</strong> August 2026</p>
+    </div>
 
-  <div class="highlight">
-    <strong>Short version:</strong> NetGateManager connects only to your local
-    router. We collect nothing. We share nothing. No ads, no tracking.
+    <div class="highlight-card">
+      <strong>Summary:</strong> NetGateManager is designed with privacy and local security as top priorities. Your router management credentials and network communications remain exclusively between your phone and your local router. We do not sell, track, or collect your personal data.
+    </div>
+
+    <h2>1. What is NetGateManager?</h2>
+    <p>
+      <strong>NetGateManager</strong> is an advanced utility application for Android designed to monitor, analyze, and manage ZTE 4G and 5G cellular routers (such as MC801A, MC888, and compatible models). The app enables users to manage cell locking, band selection, signal metrics, Wi-Fi clients, firewall configurations, SMS messages stored on the router SIM, and Wi-Fi spectrum analytics.
+    </p>
+
+    <h2>2. Data Handling & Network Communication</h2>
+    <p>
+      NetGateManager communicates <strong>directly and exclusively</strong> with your router's local gateway IP address (e.g., <code>192.168.0.1</code> or <code>192.168.1.1</code>) over your local Wi-Fi or LAN connection:
+    </p>
+    <ul>
+      <li><strong>No External Relay Servers:</strong> No router settings, login tokens, IMEI, IMSI, or cellular traffic metrics are routed through or stored on external servers.</li>
+      <li><strong>Direct Gateway API:</strong> All management queries (HTTP/HTTPS) are executed directly between your Android device and the local router web service interface.</li>
+    </ul>
+
+    <h2>3. Router SMS & Contacts</h2>
+    <p>
+      NetGateManager includes a feature to read, send, and manage SMS messages stored on the <strong>router's inserted SIM card</strong> via the router’s administrative API:
+    </p>
+    <ul>
+      <li>The app does <strong>not</strong> access your phone's personal SMS inbox or Android SMS permissions.</li>
+      <li>SMS messages sent or received through the router are retrieved directly from the router's local memory and are never uploaded to any cloud server.</li>
+    </ul>
+
+    <h2>4. App Permissions & Why They Are Needed</h2>
+    <p>
+      NetGateManager requests only the permissions strictly necessary to communicate with your router and perform diagnostic analysis:
+    </p>
+
+    <table class="permission-table">
+      <thead>
+        <tr>
+          <th>Permission</th>
+          <th>Purpose / Usage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>INTERNET</code> &amp; <code>ACCESS_NETWORK_STATE</code></td>
+          <td>Required by Android to send HTTP requests to your local router's gateway IP and detect connectivity status.</td>
+        </tr>
+        <tr>
+          <td><code>ACCESS_WIFI_STATE</code> &amp; <code>CHANGE_WIFI_STATE</code></td>
+          <td>Used to verify Wi-Fi connection state and inspect connected Wi-Fi parameters.</td>
+        </tr>
+        <tr>
+          <td><code>ACCESS_FINE_LOCATION</code> / <code>ACCESS_COARSE_LOCATION</code><br/><span class="badge">Wi-Fi Scanning Only</span></td>
+          <td>
+            <strong>Android Operating System Requirement:</strong> Android requires location permission to perform Wi-Fi spectrum analysis and detect nearby Wi-Fi APs (SSIDs, channels, RSSI) in the Wi-Fi Analyzer tool. <strong>NetGateManager does NOT track, record, or share your physical GPS location.</strong>
+          </td>
+        </tr>
+        <tr>
+          <td><code>NEARBY_WIFI_DEVICES</code></td>
+          <td>Required on Android 13+ to scan nearby Wi-Fi networks with the <code>neverForLocation</code> flag declared.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>5. Local Storage on Your Device</h2>
+    <p>
+      All settings and credentials are saved strictly on your local device storage:
+    </p>
+    <ul>
+      <li><strong>Router Credentials:</strong> If you choose "Remember Password", sensitive authentication tokens are stored securely on-device using encrypted local storage (Android Keystore / SecureStorage).</li>
+      <li><strong>App Preferences:</strong> Selected language, dark/light theme, custom polling intervals, and display settings are stored locally via standard <code>SharedPreferences</code>.</li>
+      <li>You can erase all stored data at any time by selecting <em>Logout</em>, clearing app data in Android Settings, or uninstalling the app.</li>
+    </ul>
+
+    <h2>6. In-App Purchases (Google Play Billing)</h2>
+    <p>
+      If you purchase a premium license or subscription within NetGateManager:
+    </p>
+    <ul>
+      <li>All transactions and payment processing are handled entirely by <strong>Google Play In-App Billing</strong>.</li>
+      <li>NetGateManager never receives, processes, or stores your credit card numbers or financial account details.</li>
+    </ul>
+
+    <h2>7. Third-Party Services & Diagnostics</h2>
+    <p>
+      To help maintain application stability and deliver configuration updates:
+    </p>
+    <ul>
+      <li><strong>Firebase Crashlytics (Optional / Anonymous):</strong> In the event of an application crash, anonymous stack traces and technical device model details may be sent to Firebase Crashlytics to help the developer fix bugs. No personal router credentials or local network traffic data are included.</li>
+      <li><strong>Firebase Remote Config:</strong> Used to check for critical feature flags or router compatibility profiles.</li>
+    </ul>
+
+    <h2>8. Children's Privacy</h2>
+    <p>
+      NetGateManager is a technical network diagnostic utility and is not directed at children under the age of 13. We do not knowingly collect personal information from children.
+    </p>
+
+    <h2>9. Updates to This Policy</h2>
+    <p>
+      We may occasionally update this Privacy Policy to reflect app improvements or regulatory updates. Any changes will be published here with an updated revision date.
+    </p>
+
+    <h2>10. Contact Us</h2>
+    <p>
+      If you have any questions, feedback, or concerns regarding this Privacy Policy or your data privacy, please contact:
+    </p>
+    <p>
+      <strong>Developer:</strong> NetGateManager Team<br/>
+      <strong>Email:</strong> <a href="mailto:bengrafikdev@gmail.com">bengrafikdev@gmail.com</a>
+    </p>
+
+    <div class="footer">
+      &copy; 2026 NetGateManager. All rights reserved.
+    </div>
   </div>
-
-  <h2>1. What is NetGateManager?</h2>
-  <p>
-    NetGateManager is an Android application that allows you to monitor and
-    configure your ZTE 4G/5G router directly from your phone via your local
-    Wi-Fi or LAN network.
-  </p>
-
-  <h2>2. Data We Collect</h2>
-  <p><strong>We collect no data whatsoever.</strong> Specifically:</p>
-  <ul>
-    <li>No personal information is collected.</li>
-    <li>No usage analytics or telemetry are gathered.</li>
-    <li>No crash reports are sent to any server.</li>
-    <li>No advertising identifiers are accessed.</li>
-    <li>No location data is collected or stored.</li>
-  </ul>
-
-  <h2>3. How the App Communicates</h2>
-  <p>
-    NetGateManager communicates <strong>exclusively</strong> with the router IP
-    address you enter in the app settings (e.g., 192.168.0.1). All
-    communication happens entirely within your local network (LAN). No data
-    from your router or your session ever leaves your device or your local
-    network.
-  </p>
-
-  <h2>4. Data Stored on Your Device</h2>
-  <p>
-    The following information is stored locally on your Android device using
-    Android's standard SharedPreferences storage. It never leaves your device:
-  </p>
-  <ul>
-    <li>Your router's local IP address.</li>
-    <li>Your router's admin password (only if you enable "Remember Me").</li>
-    <li>Your chosen app theme and language preference.</li>
-  </ul>
-  <p>
-    You can clear this data at any time by clearing the app's data in Android
-    Settings, or by uninstalling the app.
-  </p>
-
-  <h2>5. Internet Permission</h2>
-  <p>
-    The app declares the <code>INTERNET</code> permission in order to make
-    HTTP requests to your router's local IP address. This permission is
-    required by Android for any network communication, including local network
-    access. The app does <strong>not</strong> use this permission to connect
-    to the internet or any external server.
-  </p>
-
-  <h2>6. Children's Privacy</h2>
-  <p>
-    This app is a technical network management tool. It is not directed at
-    children under the age of 13 and does not knowingly collect any information
-    from children.
-  </p>
-
-  <h2>7. Changes to This Policy</h2>
-  <p>
-    If this policy changes, the updated version will be published at this URL
-    with a new "Last updated" date. Since we collect no data, changes are
-    expected to be minimal.
-  </p>
-
-  <h2>8. Contact</h2>
-  <p>
-    If you have questions about this privacy policy, you can contact the developer directly via <a href="mailto:bengrafikdev@gmail.com">email</a> .
-  </p>
-
-  <hr style="margin-top: 48px; border: none; border-top: 1px solid #e1e4e8;" />
-  <p style="color: #6a737d; font-size: 0.85em;">
-    NetGateManager is an open-source project. No company, no ads, no data.
-  </p>
 
 </body>
 </html>
