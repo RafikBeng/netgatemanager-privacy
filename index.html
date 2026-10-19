@@ -3,277 +3,639 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NetGateManager — Privacy Policy</title>
+  <meta name="description" content="How NetGateManager handles your data: what stays on your device, what is sent to service providers, and how to request deletion." />
+  <title>Privacy Policy — NetGateManager</title>
   <style>
     :root {
-      --primary: #0366d6;
-      --primary-dark: #024ea4;
-      --text-main: #1f2937;
-      --text-muted: #4b5563;
-      --bg-page: #f8fafc;
-      --bg-card: #ffffff;
-      --border-color: #e2e8f0;
-      --highlight-bg: #eff6ff;
-      --highlight-border: #3b82f6;
-      --badge-bg: #e0f2fe;
-      --badge-text: #0369a1;
+      --bg: #f6f7f9;
+      --surface: #ffffff;
+      --surface-2: #f1f3f6;
+      --text: #111827;
+      --text-2: #4b5563;
+      --text-3: #6b7280;
+      --border: #e5e7eb;
+      --accent: #0b63ce;
+      --accent-soft: #e8f1fc;
+      --ok: #0f7a4a;
+      --ok-soft: #e7f6ee;
+      --info: #8a5a00;
+      --info-soft: #fdf3e1;
+      --no: #b42318;
+      --no-soft: #fdecea;
+      --radius: 12px;
+      --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.06);
     }
 
-    * {
-      box-sizing: border-box;
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --surface: #151b23;
+        --surface-2: #1c232d;
+        --text: #e6edf3;
+        --text-2: #b1bac4;
+        --text-3: #8b949e;
+        --border: #2a313c;
+        --accent: #58a6ff;
+        --accent-soft: #14253d;
+        --ok: #3fb950;
+        --ok-soft: #12261a;
+        --info: #d29922;
+        --info-soft: #2a2110;
+        --no: #f47067;
+        --no-soft: #2d1515;
+        --shadow: none;
+      }
     }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
-      color: var(--text-main);
-      background-color: var(--bg-page);
-      line-height: 1.7;
-    }
-
-    .container {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 36px 32px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    }
-
-    .header {
-      border-bottom: 2px solid var(--border-color);
-      padding-bottom: 20px;
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      color: #0f172a;
-      font-size: 2rem;
-      margin: 0 0 8px 0;
-      letter-spacing: -0.025em;
-    }
-
-    .last-updated {
-      color: var(--text-muted);
-      font-size: 0.95rem;
       margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
     }
 
-    h2 {
-      color: #0f172a;
-      font-size: 1.3rem;
-      margin-top: 36px;
-      margin-bottom: 12px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    p {
-      margin: 0 0 16px 0;
-    }
-
-    ul {
-      padding-left: 24px;
-      margin: 0 0 16px 0;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .highlight-card {
-      background: var(--highlight-bg);
-      border-left: 5px solid var(--highlight-border);
-      padding: 16px 20px;
-      border-radius: 0 10px 10px 0;
-      margin: 24px 0;
-    }
-
-    .badge {
-      display: inline-block;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-
-    .permission-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 0.95rem;
-    }
-
-    .permission-table th, .permission-table td {
-      border: 1px solid var(--border-color);
-      padding: 10px 14px;
-      text-align: left;
-    }
-
-    .permission-table th {
-      background-color: #f1f5f9;
-      color: #334155;
-      font-weight: 600;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     code {
-      background: #f1f5f9;
-      color: #0f172a;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.88em;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.85em;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 1px 6px;
+      border-radius: 6px;
+      white-space: nowrap;
     }
 
-    a {
-      color: var(--primary);
+    /* ---------- Header ---------- */
+    .masthead {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .masthead-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 48px 24px 40px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      color: var(--text-2);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: var(--accent);
+      display: grid;
+      place-items: center;
+    }
+
+    .brand-mark svg { width: 16px; height: 16px; }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.6rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin: 0 0 12px;
+    }
+
+    .lede {
+      color: var(--text-2);
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 0 24px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 24px;
+      color: var(--text-3);
+      font-size: 0.9rem;
+    }
+
+    .meta strong { color: var(--text-2); font-weight: 600; }
+
+    /* ---------- Layout ---------- */
+    .layout {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 48px;
+      align-items: start;
+    }
+
+    .toc {
+      position: sticky;
+      top: 24px;
+      font-size: 0.9rem;
+    }
+
+    .toc-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-3);
+      margin: 0 0 12px;
+    }
+
+    .toc ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border-left: 1px solid var(--border);
+    }
+
+    .toc a {
+      display: block;
+      padding: 5px 0 5px 14px;
+      margin-left: -1px;
+      border-left: 2px solid transparent;
+      color: var(--text-2);
+    }
+
+    .toc a:hover {
+      color: var(--text);
+      border-left-color: var(--accent);
       text-decoration: none;
+    }
+
+    article { min-width: 0; }
+
+    section { padding-top: 8px; margin-bottom: 48px; }
+
+    h2 {
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+      margin: 0 0 16px;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+
+    h2 .num {
+      color: var(--text-3);
       font-weight: 500;
+      font-size: 0.95rem;
+      font-variant-numeric: tabular-nums;
+      min-width: 1.6em;
     }
 
-    a:hover {
-      text-decoration: underline;
-      color: var(--primary-dark);
+    p { margin: 0 0 14px; color: var(--text-2); }
+    p strong, li strong { color: var(--text); }
+
+    ul.list { margin: 0 0 14px; padding-left: 20px; color: var(--text-2); }
+    ul.list li { margin-bottom: 8px; }
+    ul.list li::marker { color: var(--text-3); }
+
+    /* ---------- At a glance ---------- */
+    .glance {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
     }
 
-    .footer {
-      margin-top: 48px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.9em;
+    .glance-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .glance-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      margin: 0 0 12px;
+    }
+
+    .glance-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex: none;
+    }
+
+    .glance-icon svg { width: 16px; height: 16px; }
+
+    .is-ok .glance-icon { background: var(--ok-soft); color: var(--ok); }
+    .is-info .glance-icon { background: var(--info-soft); color: var(--info); }
+    .is-no .glance-icon { background: var(--no-soft); color: var(--no); }
+
+    .glance-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.92rem;
+      color: var(--text-2);
+    }
+
+    .glance-card li {
+      padding: 6px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .glance-card li:first-child { border-top: 0; padding-top: 0; }
+
+    /* ---------- Tables ---------- */
+    .table-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      margin: 0 0 16px;
+      box-shadow: var(--shadow);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    th {
+      background: var(--surface-2);
+      color: var(--text-3);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    td { color: var(--text-2); }
+    td:first-child { color: var(--text); font-weight: 600; min-width: 170px; }
+    td .sub { display: block; font-weight: 400; color: var(--text-3); font-size: 0.85rem; }
+
+    .tag {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* ---------- Callout ---------- */
+    .callout {
+      background: var(--accent-soft);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 0 0 16px;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .callout p { color: var(--text); margin: 0; }
+
+    /* ---------- Contact ---------- */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 32px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contact-card p { margin: 0; }
+
+    .button {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
+    .button:hover { text-decoration: none; filter: brightness(1.08); }
+
+    @media (prefers-color-scheme: dark) {
+      .button { color: #0d1117; }
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      color: var(--text-3);
+      font-size: 0.85rem;
       text-align: center;
+      padding: 24px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-top: 32px; }
+      .toc {
+        position: static;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 16px 20px;
+      }
+      .toc ol { columns: 2; column-gap: 24px; border-left: 0; }
+      .toc a { padding-left: 0; border-left: 0; }
+      .glance { grid-template-columns: minmax(0, 1fr); }
+    }
+
+    @media (max-width: 560px) {
+      .masthead-inner { padding: 32px 16px 28px; }
+      .layout { padding: 24px 16px 56px; }
+      th, td { padding: 12px; }
+      .toc { font-size: 0.85rem; }
+    }
+
+    @media (max-width: 380px) {
+      .toc ol { columns: 1; }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .toc, .button { display: none; }
+      .layout { display: block; padding: 0; }
+      .table-wrap, .glance-card, .contact-card { box-shadow: none; }
+      section { break-inside: avoid-page; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="header">
-      <h1>Privacy Policy — NetGateManager</h1>
-      <p class="last-updated"><strong>Last updated:</strong> August 2026</p>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><circle cx="12" cy="20" r="1"/></svg>
+        </span>
+        NetGateManager
+      </div>
+      <h1>Privacy Policy</h1>
+      <p class="lede">NetGateManager manages your router directly over your local network. This policy explains what stays on your device, the limited technical data that leaves it, and the choices you have.</p>
+      <div class="meta">
+        <span><strong>Last updated:</strong> October 2026</span>
+        <span><strong>Applies to:</strong> NetGateManager for Android</span>
+        <span><strong>Contact:</strong> <a href="mailto:bengrafikdev@gmail.com">bengrafikdev@gmail.com</a></span>
+      </div>
     </div>
+  </header>
 
-    <div class="highlight-card">
-      <strong>Summary:</strong> NetGateManager is designed with privacy and local security as top priorities. Your router management credentials and network communications remain exclusively between your phone and your local router. We do not sell, track, or collect your personal data.
-    </div>
+  <div class="layout">
+    <nav class="toc" aria-label="Contents">
+      <p class="toc-title">Contents</p>
+      <ol>
+        <li><a href="#about">About the app</a></li>
+        <li><a href="#network">Network communication</a></li>
+        <li><a href="#sms">Router SMS</a></li>
+        <li><a href="#permissions">App permissions</a></li>
+        <li><a href="#storage">Local storage</a></li>
+        <li><a href="#purchases">Purchases &amp; promo codes</a></li>
+        <li><a href="#third-party">Third-party services</a></li>
+        <li><a href="#speed-test">Speed test</a></li>
+        <li><a href="#retention">Retention &amp; deletion</a></li>
+        <li><a href="#sharing">Sharing &amp; sale</a></li>
+        <li><a href="#children">Children's privacy</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ol>
+    </nav>
 
-    <h2>1. What is NetGateManager?</h2>
-    <p>
-      <strong>NetGateManager</strong> is an advanced utility application for Android designed to monitor, analyze, and manage ZTE 4G and 5G cellular routers (such as MC801A, MC888, and compatible models). The app enables users to manage cell locking, band selection, signal metrics, Wi-Fi clients, firewall configurations, SMS messages stored on the router SIM, and Wi-Fi spectrum analytics.
-    </p>
+    <article>
 
-    <h2>2. Data Handling & Network Communication</h2>
-    <p>
-      NetGateManager communicates <strong>directly and exclusively</strong> with your router's local gateway IP address (e.g., <code>192.168.0.1</code> or <code>192.168.1.1</code>) over your local Wi-Fi or LAN connection:
-    </p>
-    <ul>
-      <li><strong>No External Relay Servers:</strong> No router settings, login tokens, IMEI, IMSI, or cellular traffic metrics are routed through or stored on external servers.</li>
-      <li><strong>Direct Gateway API:</strong> All management queries (HTTP/HTTPS) are executed directly between your Android device and the local router web service interface.</li>
-    </ul>
+      <div class="glance" aria-label="Your data at a glance">
+        <div class="glance-card is-ok">
+          <h3>
+            <span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
+            Stays on your device
+          </h3>
+          <ul>
+            <li>Router login credentials</li>
+            <li>SMS messages on the router SIM</li>
+            <li>Connected-device lists</li>
+            <li>Router settings and signal data</li>
+          </ul>
+        </div>
+        <div class="glance-card is-info">
+          <h3>
+            <span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></span>
+            Sent to service providers
+          </h3>
+          <ul>
+            <li>Crash reports and diagnostics</li>
+            <li>Anonymous device identifiers</li>
+            <li>Security check results</li>
+            <li>Public IP during speed tests</li>
+          </ul>
+        </div>
+        <div class="glance-card is-no">
+          <h3>
+            <span class="glance-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/></svg></span>
+            Never
+          </h3>
+          <ul>
+            <li>Selling your data</li>
+            <li>Advertising or ad trackers</li>
+            <li>Tracking your GPS location</li>
+            <li>Reading your phone's SMS inbox</li>
+          </ul>
+        </div>
+      </div>
 
-    <h2>3. Router SMS & Contacts</h2>
-    <p>
-      NetGateManager includes a feature to read, send, and manage SMS messages stored on the <strong>router's inserted SIM card</strong> via the router’s administrative API:
-    </p>
-    <ul>
-      <li>The app does <strong>not</strong> access your phone's personal SMS inbox or Android SMS permissions.</li>
-      <li>SMS messages sent or received through the router are retrieved directly from the router's local memory and are never uploaded to any cloud server.</li>
-    </ul>
+      <section id="about">
+        <h2><span class="num">01</span>About the app</h2>
+        <p><strong>NetGateManager</strong> is a utility app for Android that monitors, analyzes and manages ZTE 4G and 5G cellular routers (such as MC801A, MC888 and compatible models). It lets you manage cell locking, band selection, signal metrics, Wi-Fi clients, firewall configuration, SMS messages stored on the router SIM, Wi-Fi spectrum analysis and internet speed tests.</p>
+      </section>
 
-    <h2>4. App Permissions & Why They Are Needed</h2>
-    <p>
-      NetGateManager requests only the permissions strictly necessary to communicate with your router and perform diagnostic analysis:
-    </p>
+      <section id="network">
+        <h2><span class="num">02</span>Network communication</h2>
+        <p>All router management happens <strong>directly</strong> between your Android device and your router's local gateway address (for example <code>192.168.0.1</code> or <code>192.168.1.1</code>) over your Wi-Fi or LAN connection.</p>
+        <ul class="list">
+          <li><strong>No relay servers.</strong> Router settings, router credentials and tokens, IMEI, IMSI, SMS content and cellular traffic metrics are never routed through or stored on external servers.</li>
+          <li><strong>Direct gateway API.</strong> Management requests (HTTP/HTTPS) go straight from your device to the router's local web interface.</li>
+          <li><strong>Other connections.</strong> The only connections outside your local network are to the services in <a href="#third-party">section 7</a> and the speed test servers in <a href="#speed-test">section 8</a>. Every connection that carries user data is encrypted (HTTPS).</li>
+        </ul>
+      </section>
 
-    <table class="permission-table">
-      <thead>
-        <tr>
-          <th>Permission</th>
-          <th>Purpose / Usage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><code>INTERNET</code> &amp; <code>ACCESS_NETWORK_STATE</code></td>
-          <td>Required by Android to send HTTP requests to your local router's gateway IP and detect connectivity status.</td>
-        </tr>
-        <tr>
-          <td><code>ACCESS_WIFI_STATE</code> &amp; <code>CHANGE_WIFI_STATE</code></td>
-          <td>Used to verify Wi-Fi connection state and inspect connected Wi-Fi parameters.</td>
-        </tr>
-        <tr>
-          <td><code>ACCESS_FINE_LOCATION</code> / <code>ACCESS_COARSE_LOCATION</code><br/><span class="badge">Wi-Fi Scanning Only</span></td>
-          <td>
-            <strong>Android Operating System Requirement:</strong> Android requires location permission to perform Wi-Fi spectrum analysis and detect nearby Wi-Fi APs (SSIDs, channels, RSSI) in the Wi-Fi Analyzer tool. <strong>NetGateManager does NOT track, record, or share your physical GPS location.</strong>
-          </td>
-        </tr>
-        <tr>
-          <td><code>NEARBY_WIFI_DEVICES</code></td>
-          <td>Required on Android 13+ to scan nearby Wi-Fi networks with the <code>neverForLocation</code> flag declared.</td>
-        </tr>
-      </tbody>
-    </table>
+      <section id="sms">
+        <h2><span class="num">03</span>Router SMS</h2>
+        <p>NetGateManager can read, send and manage SMS messages stored on the <strong>SIM card inserted in your router</strong>, using the router's administrative API.</p>
+        <ul class="list">
+          <li>The app does <strong>not</strong> access your phone's own SMS inbox and does not request Android SMS permissions.</li>
+          <li>Messages are read directly from the router's memory and are never uploaded to any server.</li>
+        </ul>
+      </section>
 
-    <h2>5. Local Storage on Your Device</h2>
-    <p>
-      All settings and credentials are saved strictly on your local device storage:
-    </p>
-    <ul>
-      <li><strong>Router Credentials:</strong> If you choose "Remember Password", sensitive authentication tokens are stored securely on-device using encrypted local storage (Android Keystore / SecureStorage).</li>
-      <li><strong>App Preferences:</strong> Selected language, dark/light theme, custom polling intervals, and display settings are stored locally via standard <code>SharedPreferences</code>.</li>
-      <li>You can erase all stored data at any time by selecting <em>Logout</em>, clearing app data in Android Settings, or uninstalling the app.</li>
-    </ul>
+      <section id="permissions">
+        <h2><span class="num">04</span>App permissions</h2>
+        <p>The app requests only the permissions it needs to talk to your router and run diagnostics.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Permission</th><th>Why it's needed</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Internet &amp; network state<span class="sub"><code>INTERNET</code> <code>ACCESS_NETWORK_STATE</code></span></td>
+                <td>To reach your router's gateway address, run speed tests, connect to the services in section 7, and detect connectivity changes.</td>
+              </tr>
+              <tr>
+                <td>Wi-Fi state<span class="sub"><code>ACCESS_WIFI_STATE</code> <code>CHANGE_WIFI_STATE</code></span></td>
+                <td>To check the Wi-Fi connection and read the parameters of the connected network.</td>
+              </tr>
+              <tr>
+                <td>Location<span class="sub"><code>ACCESS_FINE_LOCATION</code> <code>ACCESS_COARSE_LOCATION</code></span><span class="tag">Wi-Fi scanning only</span></td>
+                <td>Android requires location permission to scan nearby Wi-Fi networks (SSIDs, channels, signal strength) in the Wi-Fi Analyzer. <strong>The app does not track, record or share your GPS location.</strong></td>
+              </tr>
+              <tr>
+                <td>Nearby Wi-Fi devices<span class="sub"><code>NEARBY_WIFI_DEVICES</code></span></td>
+                <td>Required on Android 13+ to scan Wi-Fi networks. Declared with the <code>neverForLocation</code> flag.</td>
+              </tr>
+              <tr>
+                <td>Notifications<span class="sub"><code>POST_NOTIFICATIONS</code></span></td>
+                <td>Required on Android 13+ to show router alerts and app announcements. You can turn notifications off at any time in Android Settings.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-    <h2>6. In-App Purchases (Google Play Billing)</h2>
-    <p>
-      If you purchase a premium license or subscription within NetGateManager:
-    </p>
-    <ul>
-      <li>All transactions and payment processing are handled entirely by <strong>Google Play In-App Billing</strong>.</li>
-      <li>NetGateManager never receives, processes, or stores your credit card numbers or financial account details.</li>
-    </ul>
+      <section id="storage">
+        <h2><span class="num">05</span>Local storage</h2>
+        <p>Settings and credentials are saved on your device only.</p>
+        <ul class="list">
+          <li><strong>Router credentials.</strong> If you choose "Remember password", authentication data is stored in encrypted on-device storage (Android Keystore).</li>
+          <li><strong>App preferences.</strong> Language, theme, polling intervals and display settings are stored locally.</li>
+          <li><strong>Your control.</strong> Erase everything at any time by logging out, clearing the app's data in Android Settings, or uninstalling the app.</li>
+        </ul>
+      </section>
 
-    <h2>7. Third-Party Services & Diagnostics</h2>
-    <p>
-      To help maintain application stability and deliver configuration updates:
-    </p>
-    <ul>
-      <li><strong>Firebase Crashlytics (Optional / Anonymous):</strong> In the event of an application crash, anonymous stack traces and technical device model details may be sent to Firebase Crashlytics to help the developer fix bugs. No personal router credentials or local network traffic data are included.</li>
-      <li><strong>Firebase Remote Config:</strong> Used to check for critical feature flags or router compatibility profiles.</li>
-    </ul>
+      <section id="purchases">
+        <h2><span class="num">06</span>Purchases &amp; promo codes</h2>
+        <ul class="list">
+          <li>All purchases and subscriptions are processed by <strong>Google Play Billing</strong>. We never receive or store your card numbers or payment details.</li>
+          <li><strong>Promo codes.</strong> When you redeem a code, the app sends the code, a device identifier and the app version to our server (hosted on Google Firebase), so the code can be validated and used only once per device.</li>
+        </ul>
+      </section>
 
-    <h2>8. Children's Privacy</h2>
-    <p>
-      NetGateManager is a technical network diagnostic utility and is not directed at children under the age of 13. We do not knowingly collect personal information from children.
-    </p>
+      <section id="third-party">
+        <h2><span class="num">07</span>Third-party services</h2>
+        <p>To keep the app stable, secure and up to date, NetGateManager uses the services below. Each one receives only the data listed, over an encrypted connection.</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Service</th><th>Data sent</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Firebase Crashlytics<span class="sub">Google</span></td>
+                <td>Crash stack traces and error reports, device model, Android version, app version and build, app language and theme, the connected router's model and firmware version, a Crashlytics installation ID, and a random anonymous ID generated by the app.</td>
+                <td>Finding and fixing crashes and bugs.</td>
+              </tr>
+              <tr>
+                <td>Firebase Cloud Messaging<span class="sub">Google</span></td>
+                <td>A push notification token and your app language.</td>
+                <td>Delivering notifications and app announcements.</td>
+              </tr>
+              <tr>
+                <td>Firebase Remote Config<span class="sub">Google</span></td>
+                <td>A Firebase installation ID and the app version.</td>
+                <td>Delivering feature settings and router compatibility profiles.</td>
+              </tr>
+              <tr>
+                <td>freeRASP<span class="sub">Talsec</span></td>
+                <td>Device information (model, manufacturer, Android version), app information (package name, version), a device or instance ID, and security check results (such as root, hooking or tampering detection).</td>
+                <td>Protecting the app and its users against tampering, fraud and abuse.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout">
+          <p>This data is not linked to your name, email, router credentials or any account. It never includes router passwords, SMS content or your local network traffic.</p>
+        </div>
+        <p>These providers process data on our behalf under their own policies: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>, <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy &amp; Security</a> and <a href="https://www.talsec.app/" target="_blank" rel="noopener">Talsec</a>.</p>
+      </section>
 
-    <h2>9. Updates to This Policy</h2>
-    <p>
-      We may occasionally update this Privacy Policy to reflect app improvements or regulatory updates. Any changes will be published here with an updated revision date.
-    </p>
+      <section id="speed-test">
+        <h2><span class="num">08</span>Speed test</h2>
+        <p>When you run a speed test, the app transfers test data to and from public speed test servers (such as Cloudflare, OVH, Linode, Leaseweb and Tele2). Like any website, these servers see your public IP address. No personal data is sent to them.</p>
+        <p>To show your internet provider and approximate location (city and country) on the results screen, the app queries <strong>ipapi.co</strong>, <strong>fast.com</strong> or <strong>ipwhois.app</strong> over HTTPS. These services see your public IP address and return network details that are shown only to you. We do not receive or store them.</p>
+      </section>
 
-    <h2>10. Contact Us</h2>
-    <p>
-      If you have any questions, feedback, or concerns regarding this Privacy Policy or your data privacy, please contact:
-    </p>
-    <p>
-      <strong>Developer:</strong> NetGateManager Team<br/>
-      <strong>Email:</strong> <a href="mailto:bengrafikdev@gmail.com">bengrafikdev@gmail.com</a>
-    </p>
+      <section id="retention">
+        <h2><span class="num">09</span>Retention &amp; deletion</h2>
+        <ul class="list">
+          <li>Crash reports in Firebase Crashlytics are kept for up to 90 days, then deleted automatically.</li>
+          <li>Notification tokens and installation IDs are reset when you clear the app's data or uninstall the app.</li>
+          <li>Promo code redemption records are kept as long as needed to prevent a code being reused.</li>
+          <li>To request deletion of data related to your device, email <a href="mailto:bengrafikdev@gmail.com">bengrafikdev@gmail.com</a>. Because we don't know who you are, include your device model and roughly when you installed the app so we can find the right records.</li>
+        </ul>
+      </section>
 
-    <div class="footer">
-      &copy; 2026 NetGateManager. All rights reserved.
-    </div>
+      <section id="sharing">
+        <h2><span class="num">10</span>Sharing &amp; sale</h2>
+        <p>We do not sell your data, and we do not share it with anyone for advertising or marketing. The services in section 7 process data only to provide their service to us.</p>
+      </section>
+
+      <section id="children">
+        <h2><span class="num">11</span>Children's privacy</h2>
+        <p>NetGateManager is a technical network utility and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+      </section>
+
+      <section id="changes">
+        <h2><span class="num">12</span>Changes to this policy</h2>
+        <p>We may update this policy as the app changes or as regulations require. Changes are published on this page with a new "Last updated" date.</p>
+      </section>
+
+      <section id="contact">
+        <h2><span class="num">13</span>Contact</h2>
+        <div class="contact-card">
+          <p><strong>NetGateManager Team</strong><br />Questions about this policy, or a data deletion request? Email us.</p>
+          <a class="button" href="mailto:bengrafikdev@gmail.com">bengrafikdev@gmail.com</a>
+        </div>
+      </section>
+
+    </article>
   </div>
+
+  <footer>&copy; 2026 NetGateManager. All rights reserved.</footer>
 
 </body>
 </html>
