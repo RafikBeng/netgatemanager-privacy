@@ -411,7 +411,7 @@
       <h1>Privacy Policy</h1>
       <p class="lede">NetGateManager manages your router directly over your local network. This policy explains what stays on your device, the limited technical data that leaves it, and the choices you have.</p>
       <div class="meta">
-        <span><strong>Last updated:</strong> October 2026</span>
+        <span><strong>Last updated:</strong> November 2026</span>
         <span><strong>Applies to:</strong> NetGateManager for Android</span>
         <span><strong>Contact:</strong> <a href="mailto:bengrafikdev@gmail.com">bengrafikdev@gmail.com</a></span>
       </div>
@@ -462,7 +462,8 @@
           <ul>
             <li>Crash reports and diagnostics</li>
             <li>Feedback you choose to send</li>
-            <li>Router reports, only if you turn them on</li>
+            <li>Router reports and usage coverage counts, only if you turn them on</li>
+            <li>Router check results, only if you tap Send</li>
             <li>Anonymous device identifiers</li>
             <li>Security and app integrity check results</li>
             <li>Public IP during speed tests</li>
@@ -613,7 +614,7 @@
 
       <section id="feedback">
         <h2><span class="num">08</span>Feedback &amp; router reports</h2>
-        <p>The app can send two kinds of reports to our own server (a Cloudflare Worker with a Cloudflare D1 database). Both are tied only to a <strong>random feedback install ID</strong> made on your phone (for example <code>fb_3f9c…</code>). It is separate from every other identifier in the app, including the one used for promo codes and purchases, so feedback cannot be linked to who you are or what you bought. Clearing the app's data or reinstalling makes a new one. You can see and copy it in <strong>Settings → About → Feedback and reports</strong>.</p>
+        <p>The app can send reports to our own server (a Cloudflare Worker with a Cloudflare D1 database). All reports are tied only to a <strong>random feedback install ID</strong> made on your phone (for example <code>fb_3f9c…</code>). It is separate from every other identifier in the app, including the one used for promo codes and purchases, so feedback cannot be linked to who you are or what you bought. Clearing the app's data or reinstalling makes a new one. You can see and copy it in <strong>Settings → About → Feedback and reports</strong>.</p>
         <div class="table-wrap">
           <table>
             <thead>
@@ -626,18 +627,24 @@
                 <td>Only when you tap Send. You can preview the exact text before sending.</td>
               </tr>
               <tr>
-                <td>Router compatibility reports<span class="sub">"Help improve router support"</span><span class="tag">Off by default</span></td>
-                <td>The router's model, hardware and firmware version, web interface type and profile; the name of the command that failed or was not supported, its HTTP status, result code and error type, the <strong>names</strong> (never the values) of the settings fields involved and of the fields in the router's answer, whether the change was applied anyway, the app screen, and how often it happened. Plus the install ID, app version and app language.</td>
-                <td>Only if you turn the switch on (Settings → About, or the one-time question after your first login). Never in demo mode. At most 50 per day.</td>
+                <td>Router compatibility reports &amp; usage coverage<span class="sub">"Help improve router support"</span><span class="tag">Off by default</span></td>
+                <td>The router's model, hardware and firmware version, web interface type, dialect and profile; the name of the command that failed, was not supported, or was accepted but did not take effect, its HTTP status, result code and error type, the <strong>names</strong> (never the values) of the settings fields involved and of the fields in the router's answer, whether a read-back confirmed the change took effect, the app screen, and how often it happened. Plus the install ID, app version and app language. Under the same switch, the app counts how often each command or read field succeeded, failed with a router error, or was accepted but not applied (names and count numbers only, never values; for reads, only fields the router answered with a non-empty value are counted). About 2 seconds after an accepted change that has a read-back, the app reads the same fields once more to check whether it took effect; only whether it matched is reported (as <code>write_not_applied</code>), never the values.</td>
+                <td>Only if you turn the switch on (Settings → About, or the one-time question after your first login). Never in demo mode. Compatibility reports are sent in batches about every 10 minutes and when you leave the app, up to 50 per day. Usage coverage counts are batched and sent at most once an hour, up to 20 batches per day (each batch holds up to 200 commands, of which at most 150 read fields).</td>
+              </tr>
+              <tr>
+                <td>Router check<span class="sub">Settings → Check my router</span></td>
+                <td>A read-only self-test that queries verified router web interface fields and safe diagnostic queries to check which features respond. It changes nothing on your router. The report contains the router's identity (model, hardware and firmware version, dialect and profile), the names of the fields and diagnostic calls that answered or failed with a router error, and count numbers (1 for answered, 1 for router error). It never contains field values. Fields that returned empty without an error are omitted.</td>
+                <td>Only when you start the check and tap Send after it finishes. Results stay on your phone until you tap Send; if you cancel or close without tapping Send, nothing is sent. Not offered in demo mode, ZTE Cloud mode, or for Huawei routers.</td>
               </tr>
             </tbody>
           </table>
         </div>
+        <p><strong>Your reports &amp; fix notices.</strong> The app periodically asks our server for the status of feedback and router reports previously sent from your device (by sending your feedback install ID in a request header, about every 6 hours on app start or resume while online, and whenever you refresh the feedback screen; never in demo mode). Our server returns a list of recent reports from that install ID with their category or event, command and router model names, triage status, and the app version in which a fix shipped. Your original messages, emails, screenshots, diagnostics, and developer notes are never returned. The response is cached locally on your device to display fix notices on the dashboard and in the feedback screen's "Your reports" list.</p>
         <ul class="list">
           <li><strong>Scrubbed twice.</strong> Before anything leaves your phone, and again on our server, the app removes passwords, PINs, tokens, cookies, IMEI, IMSI, ICCID, phone numbers, SMS text, Wi-Fi names and keys, MAC addresses (only the manufacturer prefix is kept) and public IP addresses. Cell, eNB/gNB and area IDs are replaced by one-way hashes. A screenshot is sent as you picked it, so check it does not show anything private.</li>
           <li><strong>Added by our server:</strong> the time it was received and your country, as reported by Cloudflare. Anything not in the format above is dropped.</li>
           <li><strong>Offline.</strong> If you have no internet (for example on router Wi-Fi without a SIM), reports wait on your phone, already scrubbed, and are sent later. Unsent items are deleted after 7 days.</li>
-          <li><strong>Turning it off.</strong> Switch off "Help improve router support" and no new router reports are collected. Feedback is only ever sent when you send it.</li>
+          <li><strong>Turning it off.</strong> Switch off "Help improve router support" and no new router reports, usage coverage counts or post-write verification reads are collected, and any pending counts in memory are cleared. Feedback is only ever sent when you send it, and Router check results are only sent when you tap Send.</li>
         </ul>
       </section>
 
@@ -651,11 +658,12 @@
         <h2><span class="num">10</span>Retention &amp; deletion</h2>
         <ul class="list">
           <li>Crash reports in Firebase Crashlytics are kept for up to 90 days, then deleted automatically.</li>
-          <li>Feedback, screenshots and router reports are kept in our database for as long as they help fix problems and improve router support, and are deleted when you ask (see below). Telegram notices stay in the developer's private chat until deleted there.</li>
+          <li>Feedback, screenshots, router reports and command coverage counts are kept in our database for as long as they help fix problems and improve router support, and are deleted when you ask (see below). Telegram notices stay in the developer's private chat until deleted there.</li>
           <li>Daily rate-limit counters (keyed by install ID or a one-way hash of the IP address) are deleted after two days. Our server's request logs at Cloudflare are kept for 3 days.</li>
           <li>Notification tokens and installation IDs are reset when you clear the app's data or uninstall the app.</li>
+          <li>The status cache for "Your reports" and fix notices lives only on your phone and is deleted when you clear the app's data or uninstall the app.</li>
           <li>Promo code redemption records are kept as long as needed to prevent a code being reused.</li>
-          <li id="delete-reports"><strong>Delete my reports.</strong> Open <strong>Settings → About → Delete my reports</strong>. It opens the feedback form with a deletion request and your feedback install ID filled in; tap Send. We then delete every feedback, screenshot and router report sent from that install ID, and its rate-limit counters. A router report that other users also sent stays in an anonymous form: your install ID is removed from it and its user count lowered, while its total occurrence count stays. You can also copy the install ID from the same screen and email it to us.</li>
+          <li id="delete-reports"><strong>Delete my reports.</strong> Open <strong>Settings → About → Delete my reports</strong>. It opens the feedback form with a deletion request and your feedback install ID filled in; tap Send. We then delete every feedback, screenshot, router report and coverage link sent from that install ID, and its rate-limit counters. A router report or command coverage entry that other users also contributed to stays in an anonymous aggregated form: your install ID is removed from it and its user count lowered, while the overall occurrence count remains. You can also copy the install ID from the same screen and email it to us.</li>
           <li>To request deletion of other data related to your device, email <a href="mailto:bengrafikdev@gmail.com">bengrafikdev@gmail.com</a>. Because we don't know who you are, include your device model and roughly when you installed the app so we can find the right records.</li>
         </ul>
       </section>
